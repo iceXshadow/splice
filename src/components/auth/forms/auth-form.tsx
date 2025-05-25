@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -34,11 +35,14 @@ const AuthForm = ({ type }: { type: FormType }) => {
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		try {
+			const { password, ...rest } = values;
+
 			if (type === "register") {
-				console.log("Registering user:", values);
+				console.log("Registering user:", rest);
 				toast.success("Registration successful!");
 			} else {
-				console.log("Logging in user:", values);
+                console.log("Logging in user:", rest);
+				toast.success("Login successful!");
 			}
 		} catch (error) {
 			console.log(error);
@@ -82,7 +86,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
 							type="password"
 						/>
 
-						<Button type="submit">{isLogin ? "SignIn" : "Create an Account"}</Button>
+						<Button 
+                            type="submit"
+                            className="cursor-pointer w-full bg-primary text-secondary hover:bg-primary/90 transition-colors duration-200"
+                        >
+                            {isLogin ? "SignIn" : "Create an Account"}
+                        </Button>
 					</form>
 				</Form>
 
