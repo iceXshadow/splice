@@ -5,10 +5,10 @@ import { Button } from "../ui/button";
 const Redirect = () => {
 	return (
 		<div className="flex space-x-2 items-center">
-			<Link href="/auth/login">
+			<Link href="/login">
 				<Button variant="default">Login</Button>
 			</Link>
-			<Link href="/auth/register">
+			<Link href="/register">
 				<Button variant="outline">Register</Button>
 			</Link>
 		</div>

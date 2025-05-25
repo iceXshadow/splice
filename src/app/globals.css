@@ -108,7 +108,7 @@
   ---break---
 */
 .dark {
-	--background: oklch(0.141 0.005 285.823);
+	--background: oklch(0.1408 0.0044 285.82); /* #09090b */
 	--foreground: oklch(0.985 0 0);
 	--card: oklch(0.21 0.006 285.885);
 	--card-foreground: oklch(0.985 0 0);
@@ -116,7 +116,7 @@
 	--popover-foreground: oklch(0.985 0 0);
 	--primary: oklch(0.92 0.004 286.32);
 	--primary-foreground: oklch(0.21 0.006 285.885);
-	--secondary: oklch(0.274 0.006 286.033);
+	--secondary: oklch(0.2103 0.0059 285.89); /* #18181b */
 	--secondary-foreground: oklch(0.985 0 0);
 	--muted: oklch(0.274 0.006 286.033);
 	--muted-foreground: oklch(0.705 0.015 286.067);
@@ -152,6 +152,11 @@
 	}
 }
 
+@layer components {
+	.auth-layout {
+		@apply flex items-center justify-center mx-auto max-w-7xl min-h-screen max-sm:px-4 max-sm:py-8;
+	}
+}
 
 @utility content-center {
 	@apply flex min-h-screen items-center justify-center;
