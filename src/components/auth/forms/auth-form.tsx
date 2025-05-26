@@ -53,30 +53,17 @@ const AuthForm = ({ type }: { type: FormType }) => {
 	const isLogin = type === "login";
 
 	return (
-		<div className="p-0.5 rounded-2xl bg-secondary w-full h-fit lg:min-w-[566px]">
+		<div className="bg-secondary h-fit w-full rounded-2xl p-0.5 lg:min-w-[566px]">
 			<div className="flex min-h-full flex-col gap-6 rounded-2xl px-10 py-14">
-				<h2 className="text-primary font-bold text-4xl">Splice</h2>
+				<h2 className="text-primary text-4xl font-bold">Splice</h2>
 
 				<h3 className="text-secondary-foreground font-semibold">Practice job interviews with AI Interviewer</h3>
 
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="mt-4 w-full space-y-4">
-						{!isLogin && 
-                            <FormField 
-                                control={form.control} 
-                                name="name" 
-                                label="Name" 
-                                placeholder="Enter your name" 
-                            />
-                        }
+						{!isLogin && <FormField control={form.control} name="name" label="Name" placeholder="Enter your name" />}
 
-						<FormField 
-                            control={form.control} 
-                            name="email" 
-                            label="Email" 
-                            placeholder="Enter your email" 
-                            type="email" 
-                        />
+						<FormField control={form.control} name="email" label="Email" placeholder="Enter your email" type="email" />
 
 						<FormField
 							control={form.control}
@@ -86,12 +73,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
 							type="password"
 						/>
 
-						<Button 
-                            type="submit"
-                            className="cursor-pointer w-full bg-primary text-secondary hover:bg-primary/90 transition-colors duration-200"
-                        >
-                            {isLogin ? "SignIn" : "Create an Account"}
-                        </Button>
+						<Button
+							type="submit"
+							className="bg-primary text-secondary hover:bg-primary/90 w-full cursor-pointer transition-colors duration-200"
+						>
+							{isLogin ? "SignIn" : "Create an Account"}
+						</Button>
 					</form>
 				</Form>
 

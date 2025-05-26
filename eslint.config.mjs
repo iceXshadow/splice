@@ -9,6 +9,16 @@ const compat = new FlatCompat({
 	baseDirectory: __dirname,
 });
 
-const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript")];
+const eslintConfig = [
+	...compat.config({
+		extends: ["next/core-web-vitals", "next/typescript", "prettier"],
+		rules: {
+			semi: ["error"],
+			quotes: ["error", "double"],
+			"prefer-arrow-callback": ["error"],
+			"prefer-template-literals": ["error"],
+		},
+	}),
+];
 
 export default eslintConfig;
