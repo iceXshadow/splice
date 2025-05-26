@@ -41,7 +41,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 				console.log("Registering user:", rest);
 				toast.success("Registration successful!");
 			} else {
-                console.log("Logging in user:", rest);
+				console.log("Logging in user:", rest);
 				toast.success("Login successful!");
 			}
 		} catch (error) {
