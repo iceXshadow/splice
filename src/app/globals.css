@@ -167,6 +167,14 @@
 	.root-layout {
 		@apply flex mx-auto max-w-7xl flex-col gap-12 my-12 max-lg:px-5 max-sm:px-4 max-sm:my-8;
 	}
+
+	.interview-btn {
+		@apply text-primary cursor-pointer bg-blue-500 hover:bg-blue-600;
+	}
+
+	.tech-tooltip {
+		@apply absolute bottom-full mb-1 hidden group-hover:flex px-2 py-1 text-xs text-white rounded-md bg-gray-800
+	}
 }
 
 @utility content-center {

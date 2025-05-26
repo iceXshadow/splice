@@ -1,9 +1,10 @@
-import { Hero } from "@/components/home/home-components";
+import { Hero, Interviews } from "@/components/home/home-components";
 
 export default function Home() {
 	return (
-		<div className="relative h-screen w-full overflow-hidden">
+		<div className="flex h-screen w-full flex-col gap-12">
 			<Hero />
+			<Interviews />
 		</div>
 	);
 }
