@@ -8,6 +8,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import FormField from "./form-field";
 
@@ -20,6 +21,7 @@ const authFormSchema = (type: FormType) => {
 };
 
 const AuthForm = ({ type }: { type: FormType }) => {
+	const router = useRouter();
 	const formSchema = authFormSchema(type);
 
 	// 1. Define your form.
@@ -35,14 +37,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		try {
-			const { password, ...rest } = values;
-
 			if (type === "register") {
-				console.log("Registering user:", rest);
 				toast.success("Registration successful!");
+				router.push("/login");
 			} else {
-				console.log("Logging in user:", rest);
 				toast.success("Login successful!");
+				router.push("/");
 			}
 		} catch (error) {
 			console.log(error);
@@ -61,9 +61,22 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="mt-4 w-full space-y-4">
-						{!isLogin && <FormField control={form.control} name="name" label="Name" placeholder="Enter your name" />}
+						{ !isLogin && 
+							<FormField 
+								control={form.control} 
+								name="name" 
+								label="Name" 
+								placeholder="Enter your name" 
+							/>
+						}
 
-						<FormField control={form.control} name="email" label="Email" placeholder="Enter your email" type="email" />
+						<FormField 
+							control={form.control} 
+							name="email" 
+							label="Email" 
+							placeholder="Enter your email" 
+							type="email" 
+						/>
 
 						<FormField
 							control={form.control}
