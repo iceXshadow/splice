@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Shantell_Sans } from "next/font/google";
@@ -24,10 +23,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="dark">
 			<body className={`${shantellSans.className} antialiased`}>
-				<div className="root-layout">
-					<Navbar />
-					{children}
-				</div>
+				<div>{children}</div>
 				<Toaster />
 			</body>
 		</html>
