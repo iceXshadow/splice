@@ -71,12 +71,12 @@ interface GetLatestInterviewsParams {
 	limit?: number;
 }
 
-interface SignInParams {
+interface LoginParams {
 	email: string;
 	idToken: string;
 }
 
-interface SignUpParams {
+interface RegisterParams {
 	uid: string;
 	name: string;
 	email: string;
